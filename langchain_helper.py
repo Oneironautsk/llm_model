@@ -37,8 +37,8 @@ def get_few_shot_db_chain():
     database_url = st.secrets['DATABASE_URL']
     google_api_key = st.secrets['google_api_key']
 
-    db = SQLDatabase.from_uri()
-    llm = GooglePalm(google_api_key=os.environ["GOOGLE_API_KEY"], temperature=0.1)
+    db = SQLDatabase.from_uri(database_url)
+    llm = GooglePalm(google_api_key, temperature=0.1)
 
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
     to_vectorize = [" ".join(example.values()) for example in few_shots]
