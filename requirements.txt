@@ -10,3 +10,4 @@ pymysql
 sentence-transformers
 sqlalchemy-cockroachdb
 google-generativeai
+psycopg2
