@@ -1,7 +1,6 @@
-# Welcome to streamlit
+# CarTalk AI (Google-palm-LLM)
 
-This is the app you get when you run `streamlit hello`, extracted as its own app.
+## In this repo we done a llm model that is connected to a SQL database.
+## When question made it makes a query and get the answer from the SQL database.
 
-Edit [Hello.py](./Hello.py) to customize this app to your heart's desire. ❤️
 
-Check it out on [Streamlit Community Cloud](https://st-hello-app.streamlit.app/)
