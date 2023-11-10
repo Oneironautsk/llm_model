@@ -37,13 +37,16 @@ few_shots = [
      'Answer': "Audi Q8 is a best car because it has a high average mileage of 19.25 and a high engine cc of 2995 cc."},
 ]
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def get_few_shot_db_chain():
     database_url = "cockroachdb://jeevanathan:DylCAmQbz0Y3UqpXPIlDzg@spirit-python-7118.8nk.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
     google_api_key = st.secrets['google_api_key']
 
-    db = SQLDatabase.from_uri(database_url,sample_rows_in_table_info=3)
-    llm =  GooglePalm(google_api_key="AIzaSyC0l3tfYp4fDF4AQG9aDqDVHk9rMFJaxg8",temperature=0.1)
+    db = SQLDatabase.from_uri(os.environ["DATABASE_URL"],sample_rows_in_table_info=3)
+    llm =  GooglePalm(google_api_key=os.environ["GOOGLE_API_KEY"],temperature=0.1)
 
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
     to_vectorize = [" ".join(example.values()) for example in few_shots]
