@@ -28,10 +28,6 @@ few_shots = [
      'Answer': "Audi Q8 is a best car because it has a high average mileage of 19.25 and a high engine cc of 2995 cc."},
 ]
 
-import os
-from dotenv import load_dotenv
-load_dotenv()  # take environment variables from .env (especially openai api key)
-
 
 def get_few_shot_db_chain():
     database_url = st.secrets['DATABASE_URL']
