@@ -8,4 +8,3 @@ langchain_experimental
 sentence-transformers
 sqlalchemy-cockroachdb
 google-generativeai
-psycopg2 
