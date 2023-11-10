@@ -45,8 +45,8 @@ def get_few_shot_db_chain():
     database_url = "cockroachdb://jeevanathan:DylCAmQbz0Y3UqpXPIlDzg@spirit-python-7118.8nk.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
     google_api_key = st.secrets['google_api_key']
 
-    db = SQLDatabase.from_uri(os.environ["DATABASE_URL"],sample_rows_in_table_info=3)
-    llm =  GooglePalm(google_api_key=os.environ["GOOGLE_API_KEY"],temperature=0.1)
+    db = SQLDatabase.from_uri(st.secrets["DATABASE_URL"],sample_rows_in_table_info=3)
+    llm =  GooglePalm(google_api_key=st.secrets["GOOGLE_API_KEY"],temperature=0.1)
 
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
     to_vectorize = [" ".join(example.values()) for example in few_shots]
