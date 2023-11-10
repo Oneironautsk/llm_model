@@ -8,6 +8,15 @@ from langchain.prompts import FewShotPromptTemplate
 from langchain.chains.sql_database.prompt import PROMPT_SUFFIX
 from langchain.prompts.prompt import PromptTemplate
 import streamlit as st
+import subprocess
+command = [
+    "curl",
+    "--create-dirs",
+    "-o",
+    f"{subprocess.os.environ['HOME']}/.postgresql/root.crt",
+    "https://cockroachlabs.cloud/clusters/6b36bc32-0a92-42ba-96f6-08ae82326ebe/cert"
+]
+result = subprocess.run(command, stdout=subprocess.PIPE, text=True, check=True)
 
 few_shots = [
     {'Question' : "what is the price of Toyota Fortuner car?",
