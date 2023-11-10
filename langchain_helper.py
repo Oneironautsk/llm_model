@@ -3,7 +3,7 @@ from langchain.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts import SemanticSimilarityExampleSelector
 from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import FAISS 
 from langchain.prompts import FewShotPromptTemplate
 from langchain.chains.sql_database.prompt import PROMPT_SUFFIX
 from langchain.prompts.prompt import PromptTemplate
